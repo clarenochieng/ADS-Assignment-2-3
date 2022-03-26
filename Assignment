@@ -1,0 +1,47 @@
+import pandas as pd
+import numpy as np
+import plotly.express as px
+
+file_path = "C:\ADS-Assignment-2-3(1)\WA_Fn-UseC_-HR-Employee-Attrition.csv"
+
+employee_data = pd.read_csv(file_path)
+
+employee_data.head()
+
+employee_data.describe()
+
+employee_data.info()
+
+fig = px.box(employee_data, x = "JobRole", y = "DistanceFromHome", color = "Attrition")
+fig.show()
+
+From the boxplots above, distance from home is likely to be a factor leading to employee attrition for some roles but generally to a small extent
+
+fig = px.box(employee_data, x = "Education", y = "MonthlyIncome", color = "Attrition")
+fig.show()
+
+From the boxplots, there is a general trend where people with lower salaries than others with the same education level are likely to quit their jobs
+
+fig = px.box(employee_data, x = "YearsAtCompany", color = "Attrition")
+fig.show()
+
+Generally, employees who have been in the company for a long time are more likely to be retained in the company
+
+fig = px.box(employee_data, x = "YearsSinceLastPromotion", color = "Attrition")
+fig.show()
+
+Job promotion is likely to improve employee retention in the company.
+
+fig = px.box(employee_data, x = "Age", color = "Attrition")
+fig.show()
+
+Based on the boxplots above, the average age of people who quit their jobs is lower than those who are retained in the company
+
+In summary, the following factors are observed to be major potential contributors to employee retention:
+
++ Monthly Income
++ Years Since Last Promotion
++ Age
++ Years At Company
++ Distance From Home
+
